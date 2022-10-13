@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <strong>{{ tempDeco }}</strong>
+  <section class="pt-1">
+    <strong >{{ tempDeco }}</strong>
   </section>
 </template>
 

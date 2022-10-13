@@ -1,10 +1,10 @@
 <template>
-  <div class="box has-text-weight-bold">
-    <div class="columns">
-        <div class="column is-7">
+  <div>
+    <div class="flex flex-row m-5 p-5 border shadow rounded-md">
+        <div class="mt-1 mr-96 ml-56">
             Descrição da Tarefa
         </div>
-        <div class="column">
+        <div>
             <Cronometro :tempoSeg="15"/>
         </div>
     </div>

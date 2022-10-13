@@ -1,7 +1,7 @@
 <template>
-  <header>
-    <h1>
-        <img src="../assets/logo.png" alt="">
+  <header >
+    <h1 class="bg-cyan-600 w-56 h-screen">
+        <img src="../assets/logo.png" class="p-7">
     </h1>
   </header>
 </template>
@@ -15,18 +15,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-header {
-  padding: 1rem;
-  background: #0d3b66;
-  width: 100%;
-  height: 100vh;
-}
-@media only screen and (max-width: 768px) {
-  header {
-    padding: 2.5rem;
-    height: auto;
-  }
-}
 
 </style>

@@ -1,14 +1,14 @@
 <template>
-  <div class="is-flex is-aling-items-center is-justify-content-space-between">
+  <div class="flex flex-row mt-3 ml-4">
     <Cronometro :tempoSeg="tempoSeg" />
-    <button class="buttom" @click="iniciar" :disabled="crorun">
-      <span class="icon">
+    <button class="ml-4 bg-green-500 py-1 px-2 rounded" @click="iniciar" :disabled="crorun">
+      <span class="icon mt-1 mr-2">
         <i class="fas fa-play"></i>
       </span>
       <span>play</span>
     </button>
-    <button class="buttom" @click="finalizar" :disabled="!crorun">
-      <span class="icon">
+    <button class="ml-4 bg-red-500 py-1 px-2 rounded" @click="finalizar" :disabled="!crorun">
+      <span class="icon mt-1 mr-2">
         <i class="fas fa-stop"></i>
       </span>
       <span>stop</span>
@@ -37,7 +37,7 @@ export default defineComponent({
             }, 1000);
         },
         finalizar() {
-            this.crorun = true;
+            this.crorun = false;
             clearInterval(this.cro);
             this.$emit('aoTemp', this.tempoSeg);
             this.tempoSeg = 0;
