@@ -5,11 +5,16 @@
     </div>
     <div>
       <div class="flex flex-col">
-        <div>
+        <div class="mb-5 shadow-md">
           <Formulario @sTarefa="salvarTarefa" />
         </div>
+        <div v-show="tarefas.length == 0">
+          <div class="flex justify-center m-5 p-5 border shadow rounded-md ">
+            <div>Usuario sem atividades</div>
+          </div>
+        </div>
         <div v-show="tarefas.length > 0">
-          <Tarefa v-for="(tarefa, index) in tarefas" :key="index" />
+          <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"/>
         </div>
       </div>
     </div>

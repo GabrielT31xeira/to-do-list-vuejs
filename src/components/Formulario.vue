@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row pt-6 pl-5">
+    <div class="flex flex-row pt-6 pl-5 mb-5" style="width: 1456px">
       <div>
         <input
           type="text"
@@ -9,7 +9,7 @@
           v-model="descricao"
         />
       </div>
-      <div class="basis-1/2">
+      <div>
         <div
         >
           <Temporizador @aoTemp="fimTarefa" />
