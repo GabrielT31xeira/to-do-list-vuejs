@@ -1,20 +1,26 @@
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-row" :class="{ 'escuro': modoEsc }">
     <div>
       <BarraLateral />
     </div>
-    <div>
-      <div class="flex flex-col">
-        <div class="mb-5 shadow-md">
-          <Formulario @sTarefa="salvarTarefa" />
+    <div class="" >
+      <div class="flex flex-col" :class="{ 'background-dark': modoEsc }">
+        <div class="shadow-lg">
+          <Formulario @sTarefa="salvarTarefa" @aoTema="alterTema"/>
         </div>
-        <div v-show="tarefas.length == 0">
-          <div class="flex justify-center m-5 p-5 border shadow rounded-md ">
-            <div>Usuario sem atividades</div>
+        <div>
+          <div v-show="tarefas.length == 0">
+            <div class="flex justify-center m-5 p-5 border shadow rounded-md">
+              <p>Usuario sem atividades</p>
+            </div>
           </div>
-        </div>
-        <div v-show="tarefas.length > 0">
-          <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"/>
+          <div v-show="tarefas.length > 0">
+            <Tarefa
+              v-for="(tarefa, index) in tarefas"
+              :key="index"
+              :tarefa="tarefa"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -34,15 +40,34 @@ export default defineComponent({
   data() {
     return {
       tarefas: [] as ITarefa[],
+      modoEsc: false
     };
   },
   methods: {
     salvarTarefa(tarefa: ITarefa) {
       this.tarefas.push(tarefa);
     },
+    alterTema(modoEsc: boolean) {
+      this.modoEsc = modoEsc;
+    }
   },
 });
 </script>
 
 <style>
+.claro {
+  --bg-primario: #fff;
+  --texto-primario: #000;
+}
+.escuro {
+  --bg-primario: #2b2d42;
+  --texto-primario: #ddd;
+}
+.background-dark {
+  background-color: var(--bg-primario);
+  height: 965px;
+}
+p {
+  color: var(--texto-primario);
+}
 </style>
